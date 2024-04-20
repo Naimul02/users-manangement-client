@@ -22,6 +22,7 @@ function App() {
     fetch("http://localhost:5000/users", {
       method: "POST",
       headers: {
+        //eta deyar karon hocche ki type er data jabe backend a seta bole deya.
         "content-type": "application/json",
       },
       body: JSON.stringify(user),
@@ -29,6 +30,9 @@ function App() {
       .then((res) => res.json())
       .then((data) => {
         console.log("inside post response", data);
+        const newUsers = [...users , data];
+        setUsers(newUsers);
+        form.reset();
       });
   };
   return (
